@@ -1,7 +1,7 @@
 'use strict'
 const counterValue = document.querySelector('#value');
-const subtractionButton = document.querySelector('#value').previousSibling.previousSibling;
-const addButton = document.querySelector('#value').nextSibling.nextSibling;
+const subtractionButton = document.querySelector('button[data-action="decrement"]');
+const addButton = document.querySelector('button[data-action="increment"]');
 let total = 0;
 subtractionButton.addEventListener('click', () => {
     total -= 1
