@@ -15,15 +15,14 @@ const images = [
 ];
 
 const gallery = document.querySelector(".gallery");
-let newList = [];
-const imageList = images.map((element) => {
-  const imageEl = document.createElement("li");
-  const markup = `<img src="${element.url}" alt=${element.alt} width=300px height=300px></img>`;
-  imageEl.insertAdjacentHTML("beforeend", markup);
+let markup = "";
+const makeMarkup = images.map((element) => {
+  markup += `<li><img src="${element.url}" alt="${element.alt}" width=300px height=300px></img></li>`;
+});
+gallery.insertAdjacentHTML("beforeend", markup);
+const imageList = document.querySelectorAll("li");
+for (const imageEl of imageList) {
   imageEl.style.display = "flex";
   imageEl.style.margin = "5vh 30vw";
   imageEl.style.border = "5px solid blue";
-  newList.push(imageEl);
-});
-
-gallery.append(...newList);
+}
